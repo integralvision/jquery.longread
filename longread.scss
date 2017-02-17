@@ -1,0 +1,29 @@
+
+.long-read-cover {
+  // Cleafix
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  .long-read {
+    overflow: hidden;
+  }
+
+  &.long-read-open {
+    overflow: visible;
+  }
+
+  .long-read-more {
+    .trigger {
+      cursor: pointer;
+
+      em { font-style: normal; }
+    }
+  }
+}

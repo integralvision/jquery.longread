@@ -1,0 +1,25 @@
+.long-read-cover:before,
+.long-read-cover:after {
+  content: " ";
+  display: table;
+}
+
+.long-read-cover:after {
+  clear: both;
+}
+
+.long-read-cover .long-read {
+  overflow: hidden;
+}
+
+.long-read-cover.long-read-open {
+  overflow: visible;
+}
+
+.long-read-cover .long-read-more .trigger {
+  cursor: pointer;
+}
+
+.long-read-cover .long-read-more .trigger em {
+  font-style: normal;
+}
