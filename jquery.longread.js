@@ -35,7 +35,7 @@ var LongRead = LongRead || {};
     this.prepare();
     this.events();
 
-    this.$el.trigger('long_read:ready', this);
+    this.$el.trigger('longread:ready', this);
   };
 
   LongRead.prototype.init = function(options) {
@@ -48,7 +48,7 @@ var LongRead = LongRead || {};
       }
     }
     // Make possible to override settings.
-    this.$el.trigger('long_read:get_height', this.options);
+    this.$el.trigger('longread:get_height', this.options);
   };
 
   LongRead.prototype._getAttributes = function() {
@@ -101,7 +101,7 @@ var LongRead = LongRead || {};
   };
 
   LongRead.prototype.prepare = function() {
-    this.$el.trigger('long_read:before_prepare', this);
+    this.$el.trigger('longread:before_prepare', this);
     // wrap long text and read more listings
     if (this.options.full_height <= this.options.height) {
       return;
@@ -169,7 +169,7 @@ var LongRead = LongRead || {};
       , event_after = 'opened'
       ;
 
-    this.$el.trigger('long_read:click', this);
+    this.$el.trigger('longread:click', this);
     if (L.options.read_less) {
       if (L.$cover.hasClass('long-read-closed')) {
         // if container is closed, open it
@@ -198,7 +198,7 @@ var LongRead = LongRead || {};
       L.$trigger.fadeOut();
     }
 
-    L.$el.trigger('long_read:' + event, this);
+    L.$el.trigger('longread:' + event, this);
     L.$el.animate(
       { height: height },
       500,
@@ -209,7 +209,7 @@ var LongRead = LongRead || {};
         L.$trigger.attr('aria-expanded', expanded ? 'true' : 'false');
         L.$additionalTrigger.attr('aria-expanded', expanded ? 'true' : 'false');
 
-        L.$el.trigger('long_read:' + event_after, this);
+        L.$el.trigger('longread:' + event_after, this);
         setTimeout(function() {
           $(window).trigger('resize');
         }, 600);

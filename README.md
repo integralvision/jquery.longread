@@ -119,12 +119,12 @@ $('.long-read').longread('destroy');
 ## Events
 | Event name | description |
 |------------|-------------|
-| `long_read:get_height` | On default height calculation but before any change was made on DOM. |
-| `long_read:before_prepare` | When every option calculated but before any change was made on DOM. |
-| `long_read:prepared` | After DOM was changed. Element will be covered with additional `div` element and trigger element append after long-read element. |
-| `long_read:ready` | When plugin is ready. |
-| `long_read:click` | Fired when user clicks on (additional)triggering element. |
-| `long_read:open` | Before opening animation. |
-| `long_read:opened` | After opening animation. |
-| `long_read:close` | Before closing animation. |
-| `long_read:closed` | After closing animation. |
+| `longread:get_height` | On default height calculation but before any change was made on DOM. |
+| `longread:before_prepare` | When every option calculated but before any change was made on DOM. |
+| `longread:prepared` | After DOM was changed. Element will be covered with additional `div` element and trigger element append after long-read element. |
+| `longread:ready` | When plugin is ready. |
+| `longread:click` | Fired when user clicks on (additional)triggering element. |
+| `longread:open` | Before opening animation. |
+| `longread:opened` | After opening animation. |
+| `longread:close` | Before closing animation. |
+| `longread:closed` | After closing animation. |
