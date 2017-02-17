@@ -34,6 +34,8 @@ var LongRead = LongRead || {};
     this.init(options);
     this.prepare();
     this.events();
+
+    this.$el.trigger('long_read:ready', this);
   };
 
   LongRead.prototype.init = function(options) {
@@ -99,6 +101,7 @@ var LongRead = LongRead || {};
   };
 
   LongRead.prototype.prepare = function() {
+    this.$el.trigger('long_read:before_prepare', this);
     // wrap long text and read more listings
     if (this.options.full_height <= this.options.height) {
       return;
@@ -162,8 +165,11 @@ var LongRead = LongRead || {};
       , icon = {}
       , height = L.options.full_height + L.options.height_correction
       , expanded = false
+      , event = 'open'
+      , event_after = 'opened'
       ;
 
+    this.$el.trigger('long_read:click', this);
     if (L.options.read_less) {
       if (L.$cover.hasClass('long-read-closed')) {
         // if container is closed, open it
@@ -184,12 +190,15 @@ var LongRead = LongRead || {};
         };
         height = L.options.height;
         expanded = false;
+        event = 'close';
+        event_after = 'closed';
       }
     }
     else {
       L.$trigger.fadeOut();
     }
 
+    L.$el.trigger('long_read:' + event, this);
     L.$el.animate(
       { height: height },
       500,
@@ -200,6 +209,7 @@ var LongRead = LongRead || {};
         L.$trigger.attr('aria-expanded', expanded ? 'true' : 'false');
         L.$additionalTrigger.attr('aria-expanded', expanded ? 'true' : 'false');
 
+        L.$el.trigger('long_read:' + event_after, this);
         setTimeout(function() {
           $(window).trigger('resize');
         }, 600);
