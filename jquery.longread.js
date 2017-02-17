@@ -18,11 +18,9 @@ var LongRead = LongRead || {};
     icon: null,
     icon_less: null,
     trigger_class: null,
-    trigger_close_class: null,
     line_height: 1,
     cover_class: null,
-    show_lines: 30,
-    toggle_element: null
+    show_lines: 30
   };
 
   LongRead = function(el, options) {
@@ -57,7 +55,6 @@ var LongRead = LongRead || {};
       icon: this.$el.attr('data-long-read-icon'),
       icon_less: this.$el.attr('data-long-read-icon-less'),
       trigger_class: this.$el.attr('data-read-trigger-class'),
-      trigger_close_class: this.$el.attr('data-read-trigger-close-class'),
       line_height: parseInt(this.$el.css('line-height')),
       show_lines: parseInt(this.$el.attr('data-long-read-lines')),
       additional_trigger: null
