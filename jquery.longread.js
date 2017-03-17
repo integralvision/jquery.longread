@@ -207,7 +207,9 @@ var LongRead = LongRead || {};
         L.$trigger.find('i').removeClass(icon.hide).addClass(icon.show);
 
         L.$trigger.attr('aria-expanded', expanded ? 'true' : 'false');
-        L.$additionalTrigger.attr('aria-expanded', expanded ? 'true' : 'false');
+        if (L.$additionalTrigger) {
+          L.$additionalTrigger.attr('aria-expanded', expanded ? 'true' : 'false');
+        }
 
         L.$el.trigger('longread:' + event_after, this);
         setTimeout(function() {
