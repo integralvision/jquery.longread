@@ -56,6 +56,7 @@ var LongRead = LongRead || {};
       full_height: this.$el.height(),
       icon: this.$el.attr('data-long-read-icon'),
       icon_less: this.$el.attr('data-long-read-icon-less'),
+      icon_position: this.$el.attr('data-long-read-icon-position') || 'append',
       trigger_class: this.$el.attr('data-read-trigger-class'),
       line_height: parseInt(this.$el.css('line-height')),
       show_lines: parseInt(this.$el.attr('data-long-read-lines')),
@@ -64,6 +65,7 @@ var LongRead = LongRead || {};
 
     var optional = {
       height: 'height',
+      icon_position: 'icon-position',
       read_more_text: 'moretxt',
       read_less_text: 'lesstxt',
       read_less: 'less',
@@ -123,7 +125,13 @@ var LongRead = LongRead || {};
     this.$cover.append('<div class="' +  trigger_cover_class + '"></div>');
     var text = '<em>' + this.options.read_more_text + '</em>';
     if (this.options.icon) {
-      text += '<i class="' + this.options.icon + '"></i>';
+      var icon = '<i class="' + this.options.icon + '"></i>';
+      if (this.options.icon_position === 'prepend') {
+        text = icon + text;
+      }
+      else {
+        text += icon;
+      }
     }
 
     var trigger_class = 'more-link trigger';
