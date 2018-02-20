@@ -68,6 +68,7 @@ var LongRead = LongRead || {};
       read_less_text: 'lesstxt',
       read_less: 'less',
       cover_class: 'cover-class',
+      trigger_cover_class: 'trigger-cover-class',
       additional_trigger: 'additional-trigger'
     };
     for (var attribute in optional) {
@@ -114,7 +115,12 @@ var LongRead = LongRead || {};
     this.$el.wrap('<div class="' + cover_classes + '" />');
     this.$cover = this.$el.parent();
     this.options.height_correction = this.$el.height() - this.options.full_height;
-    this.$cover.append('<div class="long-read-more"></div>');
+
+    var trigger_cover_class = 'long-read-more';
+    if (this.options.trigger_cover_class) {
+      trigger_cover_class += ' ' + this.options.trigger_cover_class;
+    }
+    this.$cover.append('<div class="' +  trigger_cover_class + '"></div>');
     var text = '<em>' + this.options.read_more_text + '</em>';
     if (this.options.icon) {
       text += '<i class="' + this.options.icon + '"></i>';
