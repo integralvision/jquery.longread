@@ -102,7 +102,9 @@ $(document).ready(function() {
 | `read_less_text` | `data-long-read-lesstxt` | `string` | `Read less`  | Text for "Read less" switch. |
 | `read_less` | `data-long-read-less` | `bool` | `true` | Set this `false` to disable closing already opened items. |
 | `icon` | `data-long-read-icon` | `string` | `null` | Icon element classes. |
+| `icon_position` | `data-long-read-icon-position` | `string` `[prepend|append]` | `append` | Position of icon element. If you would like to display icon before trigger text set this to `prepend`. |
 | `trigger_class` | `data-long-read-trigger-class` | `string` | `null` | Additional class names for trigger element. |
+| `trigger_cover_class` | `data-long-read-trigger-cover-class` | `string` | `null` | Additional class names for trigger cover element. |
 | `line_height` | - | `number` | `1` | Base line height. Use it with `show_lines` to auto calculate closed height. |
 | `show_lines` | `data-long-read-lines` | `number` | `30` | Set the number of line we should display on closed-state. Use it with `line_height` to auto calculate closed height. |
 | `cover_class` | `data-long-read-height` | `string` | `null` | Additional class names for cover element. |
